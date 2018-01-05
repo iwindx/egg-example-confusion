@@ -1,0 +1,26 @@
+{
+  "name": "crland",
+  "version": "0.0.1",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --inspect app.js"
+  },
+  "author": "ls",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.17.2",
+    "config": "^1.29.0",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-cors": "^0.0.16",
+    "koa-mount": "^3.0.0",
+    "koa-router": "^7.3.0",
+    "log4js": "^2.4.1",
+    "moment": "^2.18.1",
+    "mongoose": "^4.11.7",
+    "xlsx": "^0.11.4"
+  }
+}

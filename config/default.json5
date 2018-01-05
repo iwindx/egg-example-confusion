@@ -1,0 +1,27 @@
+{
+  name: 'assets',
+  port: 5678,
+  // mongodb数据库连接
+  mongo: {
+    url: 'mongodb://127.0.0.1/assets'
+  },
+
+  // 是否开启mongodb日志
+  mongodb_debug: true,
+  // tb api address
+  api: 'https://api.teambition.com',
+
+  session_secret: 'I live today.',
+  auth_cookie_name: 'assets',
+
+  domain: 'localhost',
+  clientId: 'a6914760-ca76-11e7-b997-cb2e5afb0167',
+
+  clientSecret: '97294916-c5dd-4876-9887-71be3d79feae',
+    // 企业Id
+  organizationId: '5a0cf7eba24c023e52939539',
+  account: {
+    email: 'tb.robot@0kai.net',
+    pwd: '123456'
+  }
+}
