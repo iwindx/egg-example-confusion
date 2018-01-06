@@ -9,8 +9,8 @@ COPY . /app
 # 配置工作目录
 WORKDIR /app
 # 运行命令
-RUN npm install cnpm --registry=https://registry.npm.taobao.org && cnpm config get registry  && cnpm install
+#RUN npm install cnpm --registry=https://registry.npm.taobao.org && cnpm config get registry  && cnpm install
 # 声明镜像的默认入口
 EXPOSE 8000
 # 指定启动容器是默认执行命令
-CMD [ "node", "index.js" ]
+CMD [ "node", "app.js" ]
