@@ -33,6 +33,7 @@ app.use(async (ctx, next) => {
   }
 });
 
-app.listen(config.port, () => {
+const port = process.env.HTTP_PORT || config.port;
+app.listen(port, () => {
   console.log(`Server listen on ${config.port}`);
 });
