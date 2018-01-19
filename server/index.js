@@ -8,32 +8,54 @@ import mylog from './middlewares/mylog';
 import config from 'config';
 import mount from 'koa-mount';
 import db from './schemas/db';
+import hooks from './middlewares/hook';
+import message from './middlewares/message';
+import session from 'koa-session2';
+import store from './middlewares/store';
 const app = new Koa();
 
+console.log('config', config);
 mylog.init();
-
+// 跨域
 app.use(cors());
 
 // application/json
 app.use(bodyParser());
 
-app.use(mylog.accessLog);
-app.use(mount('/', routers.routes()));
+// 日志
+app.use(mylog.input);
+// redis持久化session
+if (config.use_redis) {
+  app.use(
+    session({
+      key: config.auth_cookie_name,
+      store: new store(),
+      domain: config.domain,
+      maxAge: 1000 * 60 * 60 * 24 * 5
+    })
+  );
+} else {
+  app.use(session());
+}
 
-app.use(async (ctx, next) => {
-  try {
-    await next();
-  } catch (err) {
-    // will only respond with JSON
-    ctx.status = err.statusCode || err.status || 500;
-    logger.error(err.message);
-    ctx.body = {
-      message: err.message
-    };
-  }
+app.use(routers.routes());
+
+hooks.createHook();
+
+message.init();
+
+app.use(async ctx => {
+  ctx.status = 404;
+  return (ctx.body = '404');
+});
+
+app.on('error', async (err, ctx) => {
+  const logger = log4js.getLogger('rule-error');
+  logger.info('throw error :', err);
 });
 
 const port = process.env.HTTP_PORT || config.port;
+
 app.listen(port, () => {
-  console.log(`Server listen on ${config.port}`);
+  console.log(`Server listen on ${port}`);
 });

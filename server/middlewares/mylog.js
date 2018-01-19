@@ -1,22 +1,14 @@
 import log4js from 'log4js';
 import path from 'path';
-import fs from 'fs';
+import fs, {mkdir} from 'fs';
 import mkdirp from 'mkdirp';
 
 let logger;
 export default {
-  exists() {
-    return new Promise((resolve, reject) => {
-      fs.exists(`log`, exists => {
-        if (exists) return resolve(exists);
-
-        mkdirp(`log`, err => {
-          if (err) return reject(err);
-
-          return resolve(exists);
-        });
-      });
-    });
+  async exists() {
+    const exist = fs.existsSync(`log`);
+    if (!exist) return mkdirp.sync(`log`);
+    return exist;
   },
   async init() {
     await this.exists();
@@ -24,11 +16,9 @@ export default {
     log4js.configure(address);
     logger = log4js.getLogger('access');
   },
-  accessLog(ctx, next) {
-    let user = 'anonymous';
-    let ip;
-
-    ip =
+  async input(ctx, next) {
+    const user = 'anonymous';
+    const ip =
       ctx.request.headers['x-forwarded-for'] ||
       ctx.request.ip ||
       ctx.request._remoteAddress ||
@@ -36,13 +26,14 @@ export default {
         (ctx.request.socket.remoteAddress ||
           (ctx.request.socket.socket && ctx.request.socket.socket.remoteAddress)));
 
+    const start = Date.now();
+    await next();
+    const ms = Date.now() - start;
+    const referer = ctx.request.headers['referer'];
     logger.info(
-      `${user}@${ip} ${ctx.request.method} ${ctx.request.originalUrl} ${ctx.request.headers[
-        'referer'
-      ] ||
-        ctx.request.headers['referrer'] ||
-        ''} \n ${ctx.request.get('User-Agent')}`
+      `${user}@${ip} ${referer || referer || ''}  ${ctx.request.get(
+        'User-Agent'
+      )} ${ctx.method} ${ctx.url} - ${ms}ms`
     );
-    next();
   }
 };

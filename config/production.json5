@@ -1,5 +1,5 @@
 {
-  name: 'crland-test',
+  name: 'crland',
   port: 5678,
   // mongodb数据库连接
   mongo: {
@@ -10,9 +10,9 @@
   mongodb_debug: true,
   // tb api address
   api: 'https://api.teambition.com',
-  // 授权地址
   account_api: 'https://account.teambition.com',
-  // cookie-key
+
+  session_secret: 'I live today.',
   auth_cookie_name: 'crland',
 
   domain: 'http://116.196.114.232:5678',
@@ -26,19 +26,10 @@
   projecttags: {_id: '5a52e7d7a1d10c7a438040fb', name: '法律部'},
   // 云之家
   iLand: {
-   pub: 'XT-2e1ae530-333b-4d52-a57f-992201ca097f',
-   pubsecret: 'f026e9b59607950ec2fb97e3e00c963e',
-   eid: "101",
-   url: 'http://im.crland.com.cn:6007/pubacc/pubsend'
-  },
-  // 是否有启动redis，取决于session是否有持久化
-  use_redis: false,
-  // redis 配置
-  redis: {
-    host: '127.0.0.1',
-    port: 6379,
-    db: 10,
-    family: 4
+   pub: 'XT-0aad9e6d-8729-4077-b2d4-9cc97a15c469',
+   pubsecret: 'ca4ea5e979ef1ff0545a6153d56b67c2',
+   eid: "118",
+   url: 'http://im.crland.com.cn:6007/pubacc/pubsend',
   },
   // tb账号
   account: {

@@ -6,6 +6,7 @@ const options = {
   poolSize: 5,
 };
 
+
 mongoose.connect(config.mongo.url, options, (err, res) => {
   if (err) {
     console.log('[mongoose log] Error connecting to: ', config.mongo.url + '. ' + err);
