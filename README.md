@@ -6,8 +6,8 @@
 1. 安装 `Node.js[必须]` `MongoDB[必须]` `Redis[必须]`
 2. 启动 MongoDB 和 Redis
 3. `$ npm install` 安装 frames 的依赖包
-4. 生成环境的配置文件 production
-6. `$ node app.js`
-7. visit `http://localhost:8000`
-8. done!
+4.  配置文件使用方式详见 `https://github.com/lorenwest/node-config` 生成环境的配置文件 ~/config/production
+5. `$ node app.js`
+6. visit `http://localhost:8000`
+7. done!
 ```
