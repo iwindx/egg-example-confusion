@@ -1,0 +1,15 @@
+{
+  "name": "frame",
+  "script": "./app.js",
+  "ignore_watch": ["node_modules", "log"],
+  "watch_options": {
+    "followSymlinks": false
+  },
+  "error_file": "../log/app-err.log",
+  "out_file": "../log/app-out.log",
+  "log_date_format": "YYYY-MM-DD HH:mm:ss",
+  "env": {
+    "NODE_ENV": "production",
+    "NODE_APP_INSTANCE": "production"
+  }
+}

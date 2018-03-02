@@ -1,6 +1,5 @@
 /node_modules
 /log
-/test
 .vscode*
 .DS_Store
 npm-debug.log*
