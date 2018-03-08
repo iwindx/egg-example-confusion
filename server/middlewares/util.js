@@ -8,7 +8,7 @@ export default {
     const {signature, timestamp, nonce} = req.query;
   
     // 此处为实验分配了一个 token，也可以修改为自己的 token
-    const token = 'rAGsaKai';
+    const token = 'ls1997';
   
     // 按照字典排序
     const params = [token, timestamp, nonce].sort();
