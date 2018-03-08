@@ -14,6 +14,7 @@ module.exports = {
 
     node: true
   },
+  parser: 'babel-eslint',
   // add your custom rules here
   rules: {
     'space-before-function-paren': [
@@ -101,18 +102,34 @@ module.exports = {
     // 禁止不必要的 .bind() 调用
     'no-extra-bind': 2,
     // 禁用魔术数字(3.14什么的用常量代替)
-    'no-magic-numbers': [1, {ignore: [0, -1, 1]}],
+    // 'no-magic-numbers': [1, {ignore: [0, -1, 1]}],
     // 禁止在非赋值或条件语句中使用 new 操作符
     'no-new': 2,
     // 禁止对 Function 对象使用 new 操作符
     'no-new-func': 0,
     // 禁用 void 操作符
     'no-void': 0,
+    // 箭头回调函数优先
+    'prefer-arrow-callback': 'warn',
+    // 要求创建的方法中参数不能超过4个后
+    'prefer-template': 'error',
+    //
+    'max-params': ['error', 4],
+    // 在条件判断中不能出现赋值语句
+    'no-cond-assign': 'error',
     // 要求回调函数中有容错处理
     'handle-callback-err': [2, '^(err|error)$'],
     // 要求 return 语句之前有一空行
     'newline-before-return': 0,
     // 要求方法链中每个调用都有一个换行符
-    'newline-per-chained-call': 1
+    'newline-per-chained-call': 1,
+    'valid-jsdoc': [
+      2,
+      {
+        prefer: {
+          return: 'returns'
+        }
+      }
+    ]
   }
 };
