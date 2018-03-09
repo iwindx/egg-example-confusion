@@ -2,16 +2,37 @@
   "name": "frame",
   "version": "0.0.1",
   "main": "app.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier-eslint --write *.js"
+  },
   "author": "ls",
   "license": "ISC",
+  "eslintConfig": {
+    "extends": [
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false
+  },
   "devDependencies": {
+    "errorhandler": "^1.5.0",
     "eslint-plugin-prettier": "^2.6.0",
     "prettier-eslint": "^8.8.1",
+    "prettier-eslint-cli": "^4.7.1",
     "response-time": "^2.3.2"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",

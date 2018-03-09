@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   extends: 'eslint:recommended',
-  // plugins: ['eslint-plugin-prettier'],
+  plugins: ['prettier'],
   parserOptions: {
     // ECMAScript 版本
     ecmaVersion: 6,
@@ -10,9 +10,15 @@ module.exports = {
     // // impliedStric
     // impliedStrict: true,
     // 允许在全局作用域下使用 return 语句
-    globalReturn: false,
+    globalReturn: true,
 
     node: true
+  },
+  env: {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
   },
   parser: 'babel-eslint',
   // add your custom rules here
@@ -22,7 +28,7 @@ module.exports = {
       {anonymous: 'always', named: 'never', asyncArrow: 'always'}
     ],
     // 禁用未声明的变量，除非它们在 /*global */ 注释中被提到
-    'no-undef': 0,
+    'no-undef': 2,
     indent: ['error', 2],
     // allow paren-less arrow functions
     'arrow-parens': 0,
@@ -40,8 +46,6 @@ module.exports = {
     'no-ex-assign': 2,
     // 禁止不必要的布尔转换
     'no-extra-boolean-cast': 2,
-    // 禁止不必要的括号 //(a * b) + c; //报错
-    'no-extra-parens': 0,
     // 禁止不必要的分号
     'no-extra-semi': 2,
     // 强制 typeof 表达式与有效的字符串进行比较
@@ -49,12 +53,10 @@ module.exports = {
     'valid-typeof': 2,
     // 定义对象的set存取器属性时，强制定义get
     'accessor-pairs': 2,
-    // 强制使用有效的 JSDoc 注释
-    'valid-jsdoc': 1,
     // switch 语句强制 default 分支，也可添加 // no default 注释取消此次警告
     'default-case': 2,
     // 禁止 if 语句中有 return 之后有 else
-    'no-else-return': 0,
+    'no-else-return': 2,
     // 禁用稀疏数组
     'no-sparse-arrays': 2,
     // 禁止在return、throw、continue 和 break语句之后出现不可达代码
@@ -78,7 +80,7 @@ module.exports = {
     // 文件末尾强制换行
     'eol-last': 2,
     // 强制一行的最大长度
-    'max-len': [1, 80],
+    'max-len': [2, 80],
     // 不允许空格和 tab 混合缩进
     'no-mixed-spaces-and-tabs': 2,
     // 不允许多个空行

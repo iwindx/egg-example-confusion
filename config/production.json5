@@ -9,6 +9,7 @@
     mongo: { 
       url: 'mongodb://192.168.0.3/frame',
     },
+    debug: false, // debug 为 true 时， 用于本地调式
     // redis 配置， 默认是本地
     redis: {
       host: '192.168.0.3',
