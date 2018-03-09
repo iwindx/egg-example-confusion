@@ -13,8 +13,8 @@ mongoose.connect(config.mongo.url, options, (err, res) => {
       '[mongoose log] Error connecting to: ',
       `${config.mongo.url}. ${err}`
     )
-    return process.exit(1)
   }
+
   return logger('mongoose').info(
     '[mongoose log] Successfully connected to: ',
     config.mongo.url
