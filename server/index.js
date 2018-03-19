@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser'
 import session from 'express-session'
 import connectRedis from 'connect-redis'
 import compress from 'compression'
-import routers from './routers'
+import routers from './api/routers'
 /* eslint-disable no-unused-vars */
 import db from './models';
 import { http_log, logger } from './common/logger'
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }))
 app.use(http_log)
 // cookie
 app.use(cookieParser(config.session_secret))
-
+// Node.js compression middleware.
 app.use(compress())
 
 app.use(auth.authUser)

@@ -1,9 +1,7 @@
 import { User } from '../models'
 
-class UserProxy {
-  async getUserById(_id) {
-    return await User.findById(_id).exec()
+export default {
+  getUserById(_id, callback) {
+    User.findById(_id).exec(callback)
   }
 }
-
-export default UserProxy

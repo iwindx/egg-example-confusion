@@ -2,6 +2,9 @@ import mongoose from 'mongoose'
 import config from 'config'
 import { logger } from '../common/logger'
 import User from './user'
+import bluebird from 'bluebird'
+
+mongoose.Promise = bluebird
 
 const options = {
   poolSize: 10
