@@ -28,4 +28,4 @@ db.once('open', () => {
   return logger('mongoose').info('mongoose open success')
 })
 
-exports.User = User
+exports.User = User;

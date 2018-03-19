@@ -13,7 +13,6 @@ import db from './models';
 import { http_log, logger } from './common/logger'
 import errorhandler from 'errorhandler'
 import auth from './middlewares/auth'
-console.log('config', config)
 
 const app = express()
 
