@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import config from 'config'
-import { logger } from '../common/logger'
+import { logger } from '../middlewares/logger'
 import User from './user'
 import bluebird from 'bluebird'
 
@@ -31,4 +31,4 @@ db.once('open', () => {
   return logger('mongoose').info('mongoose open success')
 })
 
-exports.User = User;
+exports.User = User

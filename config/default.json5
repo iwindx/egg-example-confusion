@@ -24,7 +24,7 @@
     // 是否开启mongodb日志
     mongodb_debug: true,
     // tb api address
-    api: 'http://salesdemo.teambition.net',
+    api: 'http://salesdemo.teambition.net/api',
     // tb login auth address
     account_api: 'http://salesdemo.teambition.net',
 

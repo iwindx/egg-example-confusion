@@ -91,9 +91,9 @@ module.exports = {
     // 禁止在非赋值或条件语句中使用 new 操作符
     'no-new': 2,
     // 要求创建的方法中参数不能超过4个后
-    'prefer-template': 'error',
+    'prefer-template': 2,
     // 方法中最多4个参数
-    'max-params': ['error', 4],
+    'max-params': [2, 4],
     // 在条件判断中不能出现赋值语句
     'no-cond-assign': 2,
     // 要求回调函数中有容错处理

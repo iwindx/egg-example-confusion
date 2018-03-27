@@ -10,7 +10,7 @@ import compress from 'compression'
 import routers from './api/routers'
 /* eslint-disable no-unused-vars */
 import db from './models';
-import { http_log, logger } from './common/logger'
+import { http_log, logger } from './middlewares/logger'
 import errorhandler from 'errorhandler'
 import auth from './middlewares/auth'
 
