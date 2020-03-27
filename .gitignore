@@ -1,6 +1,21 @@
-/node_modules
-/log
-.vscode*
+logs/
+npm-debug.log
+node_modules/
+coverage/
+.idea/
+run/
+logs/
+out/
 .DS_Store
-npm-debug.log*
-package-lock.json *
+.vscode
+*.swp
+*.lock
+*.js
+!.autod.conf.js
+
+app/**/*.js
+test/**/*.js
+config/**/*.js
+app/**/*.map
+test/**/*.map
+config/**/*.map
